@@ -26,7 +26,6 @@ authRouter.post('/login', async (req: Request, res: Response) => {
     } catch (e) {
         res.status(400).send("Invalid Credentials");
     }
-    
 });
 
 authRouter.get('/status', authenticateJWT, (req: Request, res: Response) => {
