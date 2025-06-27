@@ -12,7 +12,7 @@ authRouter.post('/register', (req: Request, res: Response) => {
 });
 
 authRouter.post('/login', async (req: Request, res: Response) => {
-    try{
+    try {
         const user = await prisma.user.findFirstOrThrow({
             where: {
                 username: req.body.username

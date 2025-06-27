@@ -17,4 +17,20 @@ model User {
   username  String  @unique
   password  String?
   googleId  String?
+  admin     Boolean @default(false)
+}
+
+model Product {
+  id        Int @id @default(autoincrement())
+  name      String
+  price     Decimal
+
+  ProductImages ProductImage[]
+}
+
+model ProductImage {
+  id        Int     @id @default(autoincrement())
+  url       String
+  productId Int
+  product   Product @relation(fields: [productId], references: [id])
 }
